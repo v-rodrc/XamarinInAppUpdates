@@ -1,6 +1,11 @@
 ﻿using Foundation;
 using UIKit;
 
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Distribute;
+
 namespace InAppUpdates
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the
@@ -15,6 +20,9 @@ namespace InAppUpdates
         [Export("application:didFinishLaunchingWithOptions:")]
         public bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
+
+            AppCenter.Start("80e099a0-8a55-4d93-a732-451415b28680",
+                   typeof(Analytics), typeof(Crashes), typeof(Distribute));
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
             return true;
